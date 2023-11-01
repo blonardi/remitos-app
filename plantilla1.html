@@ -6,29 +6,34 @@
   <div class="fecha">
     <h4>Fecha</h4>
     <div class="fecha-hoy">
-      <div class="fecha-hoy-data">{{day}}</div>
-      <div class="fecha-hoy-data">{{month}}</div>
-      <div class="fecha-hoy-data">{{year}}</div>
+      <div class="fecha-hoy-data">{{fecha.day}}</div>
+      <div class="fecha-hoy-data">{{fecha.month}}</div>
+      <div class="fecha-hoy-data">{{fecha.year}}</div>
     </div>
   </div>
   <div class="detalle">
     <table>
       <thead>
         <tr>
-          <th>Cant.</th>
+          <th>Cantidad</th>
           <th>Detalle</th>
+          <th>Precio</th>
         </tr>
       </thead>
       <tbody>
+        {% for producto in productos %}
         <tr>
-          <td>1</td>
-          <td>Producto 1</td>
+          <td>{{producto.cantidad }}</td>
+          <td>{{ producto.tipo_bolsa }} {{ producto.longitud_bolsa }}</td>
+          <td>{{ producto.precio_bolsa }}</td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>Producto 2</td>
-        </tr>
+        {% endfor %}
       </tbody>
+			<tr>
+				<td colspan="2">Total:</td>
+				<td>{{ total_precio }}</td>
+		</tr>
+</tfoot>	
     </table>
   </div>
   <div class="observaciones">

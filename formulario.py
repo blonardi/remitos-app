@@ -24,78 +24,78 @@ app = Tk()
 name = StringVar()
 
 # Tamano de ventana: anchura x altura
-app.geometry("300x300")
+app.geometry("400x400")
 app.config(background="black")
 app.title("Remitos Bolsas ")
 
 
 def enviar_datos():
+
     # Obtener datos del formulario
-
-    valor_tipo_bolsa = campo_tipo_bolsa.get()
-
-    valor_medida_bolsa = campo_medida_bolsa.get()
-
-    valor_precio_total = campo_precio_total.get()
-
+    print(datos_remito)
    # Llama a la función para generar el PDF
-    generar_pdf2(valor_tipo_bolsa, valor_medida_bolsa, valor_precio_total)
+    generar_pdf2(datos_remito)
 
 
 def agregar_mas():
-		nuevo_producto = Entry(app)
-		nuevo_cantidad = Entry(app)
-		nuevo_precio = Entry(app)
+    nuevo_conjunto = {
+        'cantidad': campo_cantidad_value.get(),
+        'tipo_bolsa': campo_tipo_bolsa_value.get(),
+        'longitud_bolsa': campo_medida_bolsa_value.get(),
+        'precio_bolsa': campo_precio_bolsa_value.get()
+    }
 
-		nuevo_producto.grid(row=next_row, column=0)
-		nuevo_cantidad.grid(row=next_row, column=1)
-		nuevo_precio.grid(row=next_row, column=2)
+    # Agrega el diccionario a la lista
+    datos_remito.append(nuevo_conjunto)
 
-		# Agrega los campos a la lista para su posterior procesamiento
-		campos_productos.append(nuevo_producto)
-		campos_cantidad.append(nuevo_cantidad)
-		campos_precio.append(nuevo_precio)
+    # Limpia los campos para el próximo conjunto
+    campo_cantidad_value.set('')
+    campo_tipo_bolsa_value.set('')
+    campo_medida_bolsa_value.set('')
+    campo_precio_bolsa_value.set('')
 
-    # Incrementa el contador de filas
-    next_row += 1
-
+    print(datos_remito)
 
 
-# def show_name():
-#     nuevo_nombre = name.get()
-
-#     if nuevo_nombre:
-#         print(f"My name is {nuevo_nombre}")
-#     else:
-#         print("I have no name, i am unnamed dea")
-
+campo_cantidad_value = StringVar()
+campo_tipo_bolsa_value = StringVar()
+campo_medida_bolsa_value = StringVar()
+campo_precio_bolsa_value = StringVar()
 
 titulo = Label(app, text="Remito's App", font=(
     "Helvetica", 20, "bold"), bg="black", fg="white")
 titulo.pack(pady=20)  # pady agrega espacio en la parte inferior del t
 
 # Etiquetas y campos de entrada
+
+etiqueta_cantidad = Label(
+    app, text="Cantidad", font=('Roboto', 12))
+etiqueta_cantidad.pack(fill="both", expand=True,)
+campo_cantidad = Entry(app, textvariable=campo_cantidad_value)
+campo_cantidad.pack(fill="both", expand=True,)
+
+
 etiqueta_tipo_bolsa = Label(
     app, text="Tipo de Bolsas", font=('Roboto', 12))
 etiqueta_tipo_bolsa.pack(fill="both", expand=True)
-campo_tipo_bolsa = Entry(app)
+campo_tipo_bolsa = Entry(app, textvariable=campo_tipo_bolsa_value)
 # textvariable=name
 campo_tipo_bolsa.pack(fill="both", expand=True,)
 
 etiqueta_medida_bolsa = Label(
     app, text="Medida de Bolsas", font=('Roboto', 12))
 etiqueta_medida_bolsa.pack(fill="both", expand=True,)
-campo_medida_bolsa = Entry(app)
+campo_medida_bolsa = Entry(app, textvariable=campo_medida_bolsa_value)
 campo_medida_bolsa.pack(fill="both", expand=True,)
 
-etiqueta_precio_total = Label(app, text="Precio Total", font=('Roboto', 12))
-etiqueta_precio_total.pack(fill="both", expand=True,)
-campo_precio_total = Entry(app)
-campo_precio_total.pack(fill="both", expand=True,)
+etiqueta_precio_bolsa = Label(app, text="Precio bolsa", font=('Roboto', 12))
+etiqueta_precio_bolsa.pack(fill="both", expand=True,)
+campo_precio_bolsa = Entry(app, textvariable=campo_precio_bolsa_value)
+campo_precio_bolsa.pack(fill="both", expand=True,)
 
 
-boton_agregar_mas = Button(app, text="AGREGAR MAS", font=(
-    'Roboto', 16), cursor="hand2", relief="flat", command=agregar_mas)
+boton_agregar_mas = Button(app, text="AGREGAR +", font=(
+    'Roboto', 16), bg="#13B018", cursor="hand2", relief="flat", command=agregar_mas)
 boton_agregar_mas.pack(fill="both", expand=True)
 
 
@@ -104,10 +104,7 @@ boton_generar_pdf = Button(
     app, text="GENERAR REMITO", font=('Roboto', 16), bg="#00a8e8", fg="white", cursor="hand2", relief="flat", command=enviar_datos)
 boton_generar_pdf.pack(fill="both", expand=True)
 
-
-# bootoon = Button(app, text="show name",
-#                  command=show_name)
-# bootoon.pack(fill="both")
+datos_remito = []
 
 # Iniciar la aplicación
 app.mainloop()
