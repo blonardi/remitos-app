@@ -1,11 +1,10 @@
-
-
 body {
   font-family: sans-serif;
   font-size: 16px;
 }
 
 .remito {
+  padding: 6px;
   width: 21cm;
   height: 29.7cm;
   margin: 0 auto;
@@ -14,6 +13,33 @@ body {
 
 .cabecera {
   text-align: center;
+  display:flex;
+  justify-content: space-around;
+}
+
+.box {
+  flex: 1 1 0px;
+}
+
+.cabecera-1 img {
+  width: 140px;
+}
+
+.cabecera-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cabecera-3-fecha{
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 4px;
+  width:160px;
+}
+
+.cabecera-3 h4 {
+  margin: 4px;
 }
 
 .fecha {
@@ -24,8 +50,8 @@ body {
 
 .fecha-hoy{
   display: flex;
-  justify-content: space-between;
-  gap: 6px;
+  justify-content: center;
+  gap: 8px;
 }
 
 .fecha-hoy-data {
@@ -49,6 +75,10 @@ th {
 
 td {
   padding: 10px;
+}
+
+th,td{
+  border: 1px solid black;
 }
 
 textarea {

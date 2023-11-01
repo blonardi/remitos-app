@@ -1,14 +1,33 @@
 <div class="remito">
   <div class="cabecera">
-    <h1>Remito</h1>
-    <h3>DOCUMENTO NO VALIDO COMO FACTURA</h3>
-  </div>
-  <div class="fecha">
-    <h4>Fecha</h4>
-    <div class="fecha-hoy">
-      <div class="fecha-hoy-data">{{fecha.day}}</div>
-      <div class="fecha-hoy-data">{{fecha.month}}</div>
-      <div class="fecha-hoy-data">{{fecha.year}}</div>
+    <div class="box cabecera-1">
+      <img
+        src="https://cdn.icon-icons.com/icons2/2622/PNG/512/brand_spacex_icon_158693.png"
+        alt="Mi SVG feliz"
+      />
+    </div>
+    <div class="box cabecera-2">
+      <h1>REMITO</h1>
+      <h4>DOCUMENTO NO VALIDO COMO FACTURA</h4>
+    </div>
+    <div class="box cabecera-3">
+      <div class="cabecera-3-fecha">
+        <h4>Fecha</h4>
+        <div class="fecha-hoy">
+          <div class="fecha-hoy-data">
+            Dia
+            <div class="fecha-hoy-data">{{fecha.day}}</div>
+          </div>
+          <div class="fecha-hoy-data">
+            Mes
+            <div class="fecha-hoy-data">{{fecha.month}}</div>
+          </div>
+          <div class="fecha-hoy-data">
+            Anio
+            <div class="fecha-hoy-data">{{fecha.year}}</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="detalle">
@@ -29,11 +48,10 @@
         </tr>
         {% endfor %}
       </tbody>
-			<tr>
-				<td colspan="2">Total:</td>
-				<td>{{ total_precio }}</td>
-		</tr>
-</tfoot>	
+      <tr>
+        <td colspan="2">Total:</td>
+        <td>{{ total_precio }}</td>
+      </tr>
     </table>
   </div>
   <div class="observaciones">
