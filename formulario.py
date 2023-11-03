@@ -1,7 +1,7 @@
 from generador_pdf import generar_pdf  # Importa la función para generar el PDF
 from prueba import generar_pdf2
 import sys
-
+from tkinter import PhotoImage
 PYTHON_VERSION = sys.version_info.major
 
 if PYTHON_VERSION < 3:
@@ -22,6 +22,12 @@ else:
 # Crear ventana principal
 app = Tk()
 name = StringVar()
+
+
+img = PhotoImage(file='/home/bauti/Documents/proyectos/kumpel/remito-app/remito_icon.img')
+# app.call('wm', 'iconphoto', app._w, img)
+app.iconphoto(False, img)
+
 
 # Tamano de ventana: anchura x altura
 app.geometry("400x400")
