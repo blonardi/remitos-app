@@ -21,6 +21,8 @@ Si deseas utilizar la versión ejecutable para Windows, no necesitas instalar Py
    git clone https://github.com/blonardi/remitos-app.git
    ```
 
+Dentro del repositorio clonado ejecutar: `python formulario.py` para ejecutar el programa.
+
 ## Ejecutar la Versión Ejecutable en Windows
 
 Si prefieres no instalar Python o las dependencias en tu sistema Windows, puedes utilizar la versión ejecutable de esta aplicación.
